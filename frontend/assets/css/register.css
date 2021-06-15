@@ -1,0 +1,359 @@
+.nav{
+    background: #000000;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+body{
+    overflow-x: hidden;
+}
+.nav-mobile{
+    display: none;
+    z-index: 1000;
+}
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+a{
+    color: unset;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.container{
+    width: 80%;
+    max-width: 1366px;
+    padding: 0;
+}
+.bg-img{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.row{
+    margin: 0;
+}
+
+/*CSS MENU*/
+.menu-wrap{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+}
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-item{
+    font-size: 1rem;
+    color: white;
+    font-weight: 600;
+    padding: 5px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    /*transition: 0.5s ease-in-out;*/
+}
+.right-menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search ,.login , .cart{
+    font-size: 1rem;
+    color: white;
+    font-weight: 600;
+    padding: 5px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.search{
+    display: flex;
+    border:0.125px solid white;
+    justify-content: center;
+    align-items: center;
+}
+.search > input{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+}
+.logo{
+    font-size: 3rem;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+}
+.menu-item:hover , .menu-item.active,.login:hover ,.cart:hover{
+    color: #F7A670;
+}
+.nav-mobile .show-menu-mb-content
+{
+    display: block;
+}
+
+a#dropdownMenuLink {
+    background: transparent;
+    color: white;
+}
+a#dropdownMenuLink:hover{
+    color: #F7A670;
+}
+
+/*END CSS MENU*/
+
+/*CSS Main*/
+.main{
+    margin-top:72px;
+    padding: 40px 0px;
+}
+.position p {
+    text-align: right;
+    font-size: 20px;
+    color: #562606;
+}
+.position a{
+    color: black;
+}
+.position a:hover{
+    color: #562606;
+}
+fieldset{
+    border-top: 2px solid #562606;
+}
+.boxtext legend {
+    width: unset;
+    text-align: center;
+    color: #562606;
+    /*font-weight: 600;*/
+    font-size: 39px;
+    padding: 0 10px;
+}
+.form-register{
+    background: #EFEEED;
+}
+.form-register>form{
+    width: 60%;
+    margin:0 auto;
+    padding: 40px 20px;
+}
+.btn-register-group
+{
+    text-align: center;
+    padding: 20px 0px;
+}
+.submit-register{
+    margin-right: 20px;
+}
+.btn-primary{
+    background: #562606;
+    font-size: 19px;
+    font-weight: bold;
+    border: none;
+}
+.btn-primary:hover{
+    background: #B8805B;
+}
+.color-red{
+    color:red!important;
+}
+/*END CSS MAIN*/
+
+
+/*CSS FOODTER*/
+.footer{
+    background: #000000;
+    padding: 3rem 0;
+    color: white;
+}
+.footer .row{
+    justify-content: space-between;
+}
+.footer-item i{
+    font-size: 25px;
+    margin-right: 10px;
+    display: inline-block;
+}
+/*END CSS FOODTER*/
+
+/*responsive ipad*/
+@media (min-width: 768px) and (max-width: 1024px)
+{
+    .nav{
+        display: none;
+    }
+    .container{
+        width: 100%;
+    }
+    .nav-mobile{
+        background: #000000;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        display: unset;
+    }
+    .nav-mobile .row{
+        justify-content: space-between;
+        align-items: center;
+    }
+    .menu-mb{
+        color: white;
+        font-size:20px;
+        font-weight: 600;
+    }
+    .item-info h3 {
+        font-size: 20px;
+    }
+    .menu-mb-wrap{
+        padding: 0 10px;
+    }
+    i {
+        padding: 0 8px;
+    }
+    .item-top{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 10px;
+    }
+    .nav-mobile .menu-item{
+        display: flex;
+        font-size: 16px;
+        border-bottom: 0.125rem solid white;
+        padding:10px 0px;
+    }
+    .nav-mobile .menu-item-last
+    {
+        border: none;
+    }
+    .menu-item input{
+        background: transparent;
+        color: white;
+        outline: none;
+        border:1px solid #552505;
+        margin-right: 10px;
+    }
+    .menu-item button{
+        background: #552505;
+        color: white;
+        outline: none;
+        border:none;
+    }
+    .menu-mb-content{
+        display: none;
+        /*display : none*/
+    }
+    .footer-item{
+        width: 100%;
+    }
+    .text-alin-center{
+        text-align: center;
+    }
+    .footer-menu{
+        display: none;
+    }
+    .boxtext legend{
+        font-size: 36px;
+    }
+}
+/*End responsive ipad*/
+
+@media (max-width: 767px)
+{
+    .nav{
+        display: none;
+    }
+    .container{
+        width: 100%;
+    }
+    .nav-mobile{
+        background: #000000;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        display: unset;
+    }
+    .nav-mobile .row{
+        justify-content: space-between;
+        align-items: center;
+    }
+    .menu-mb{
+        color: white;
+        font-size:20px;
+        font-weight: 600;
+    }
+    .item-info h3 {
+        font-size: 20px;
+    }
+    .menu-mb-wrap{
+        padding: 0 10px;
+    }
+    i {
+        padding: 0 8px;
+    }
+    .item-top{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 10px;
+    }
+    .nav-mobile .menu-item{
+        display: flex;
+        font-size: 16px;
+        border-bottom: 0.125rem solid white;
+        padding:10px 0px;
+    }
+    .nav-mobile .menu-item-last
+    {
+        border: none;
+    }
+    .menu-item input{
+        background: transparent;
+        color: white;
+        outline: none;
+        border:1px solid #552505;
+        margin-right: 10px;
+    }
+    .menu-item button{
+        background: #552505;
+        color: white;
+        outline: none;
+        border:none;
+    }
+    .menu-mb-content{
+        display: none;
+        /*display: none;*/
+    }
+    .footer-item{
+        width: 100%;
+    }
+    .text-alin-center{
+        text-align: center;
+    }
+    .footer-menu{
+        display: none;
+    }
+    .boxtext legend{
+        font-size: 26px;
+    }
+    .form-register>form{
+        width: 100%;
+        margin:0 auto;
+        padding: 20px 20px;
+    }
+}

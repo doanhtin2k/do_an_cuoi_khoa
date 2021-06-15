@@ -1,0 +1,68 @@
+/*CSS product card*/
+.product {
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.card-group .card{
+    margin:16px 0px;
+    flex: unset;
+    border: none;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    box-sizing: border-box;
+    z-index: 99;
+}
+.card-group .card:hover{
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    z-index: 100
+}
+.card-body {
+    padding: 20px 0px;
+}
+.card-price,.card-title{
+    margin: 0;
+}
+.card-price{
+    font-weight: bold;
+    color: red;
+}
+.card-footer{
+    background: transparent;
+    padding: 0px;
+    border: none;
+}
+.buy{
+    background: transparent;
+    color: black;
+    display: block;
+    width: 100%;
+    padding: 12px 0px;
+    text-align: center;
+    border: 0.125rem solid #552505;
+    font-weight: 800;
+}
+.buy:hover{
+    background: #552505;
+    color: white;
+    text-decoration: none;
+}
+/*END CSS product card*/
+/*END CSS MAIN*/
+
+
+/*CSS FOODTER*/
+.footer{
+    background: #000000;
+    padding: 3rem 0;
+    color: white;
+}
+.footer .row{
+    justify-content: space-between;
+}
+.footer-item i{
+    font-size: 25px;
+    margin-right: 10px;
+    display: inline-block;
+}
+/*END CSS product card*/
