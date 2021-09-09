@@ -11,17 +11,17 @@ $year = '';
 $username = '';
 $jobs = '';
 $avatar = '';
-if (isset($_SESSION['user'])) {
-    $username = $_SESSION['user']['username'];
-    $jobs = $_SESSION['user']['jobs'];
-    $avatar = $_SESSION['user']['avatar'];
-    $year = date('Y', strtotime($_SESSION['user']['created_at']));
+if (isset($_SESSION['admin'])) {
+    $username = $_SESSION['admin']['username'];
+    $jobs = $_SESSION['admin']['jobs'];
+    $avatar = $_SESSION['admin']['avatar'];
+    $year = date('Y', strtotime($_SESSION['admin']['created_at']));
 }
 
 ?>
 <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>A</b>LT</span>
         <!-- logo for regular state and mobile devices -->
@@ -56,7 +56,7 @@ if (isset($_SESSION['user'])) {
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="index.php?controller=user&action=profile" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
                                 <a href="index.php?controller=user&action=logout" class="btn btn-default btn-flat">Sign
@@ -74,15 +74,6 @@ if (isset($_SESSION['user'])) {
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <!-- Sidebar user panel -->
-        <div class="user-panel">
-            <div class="pull-left image">
-                <img src="assets/uploads/<?php echo $avatar; ?>" class="img-circle" alt="User Image">
-            </div>
-            <div class="pull-left info">
-                <p><?php echo $username; ?></p>
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
-        </div>
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">LAOYOUT ADMIN</li>
@@ -104,13 +95,22 @@ if (isset($_SESSION['user'])) {
                 </a>
             </li>
             <li>
-                <a href="index.php?controller=user&action=index">
-                    <i class="fa fa-user"></i> <span>Quản lý user</span>
+                <a href="index.php?controller=product&action=search">
+                    <i class="fas fa-search"></i> <span>Search</span>
                     <span class="pull-right-container">
               <!--<small class="label pull-right bg-green">new</small>-->
             </span>
                 </a>
             </li>
+            <li>
+                <a href="index.php?controller=order&action=index">
+                    <i class="fas fa-clipboard-list"></i><span>&nbsp;&nbsp;Order</span>
+                    <span class="pull-right-container">
+              <!--<small class="label pull-right bg-green">new</small>-->
+            </span>
+                </a>
+            </li>
+
         </ul>
     </section>
     <!-- /.sidebar -->

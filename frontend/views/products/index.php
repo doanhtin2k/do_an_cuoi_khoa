@@ -43,11 +43,39 @@
                      src="../backend/assets/uploads/<?php echo $product['avatar']?>"
                      alt="Card image cap">
                 <div class="card-body">
-                    <p class="card-price">
+                    <div class="sale-and-new">
                         <?php
-                        echo number_format($product['price']).'đ';
+                        if($product['promotions']!=0):
+                            ?>
+                            <img src="assets/images/icon-sale.png" class="sale"/>
+                        <?php
+                        endif;
+                        ?>
+                    </div>
+                    <p class="card-last-price">
+                        <?php
+                        $last_price = $product['price']*(100-$product['promotions'])/100;
+                        echo number_format($last_price).'đ';
                         ?>
                     </p>
+                    <?php
+                    if($product['promotions']!=0):
+                        ?>
+                        <p class="card-price">
+                            <del style="color:#AAAAAA;">
+                                <?php
+                                echo number_format($product['price']).'đ';
+                                ?>
+                            </del>
+                            <span style="padding:10px;color:red">
+                                <?php
+                                echo "giảm ".$product['promotions'].'%';
+                                ?>
+                            </span>
+                        </p>
+                    <?php
+                    endif;
+                    ?>
                     <p class="card-title">
                         <?php
                         echo $product['title'];
@@ -55,7 +83,8 @@
                     </p>
                 </div>
                 <div class="card-footer">
-                    <a class="buy" href="#">Mua ngay</a>
+                    <a class="detail-product" href="index.php?controller=product&action=detail&product_id=<?php echo $product['id'];?>">Xem chi tiết </a>
+                    <div class="add-to-cart" data-id="<?php echo $product['id']; ?>">thêm vào giỏ hàng</div>
                 </div>
             </div>
         <?php

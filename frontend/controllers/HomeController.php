@@ -22,7 +22,7 @@ class HomeController extends Controller
 
         $model_product = new Product();
         $products = $model_product->getAll();
-
+        $this->page_title ="Home";
         $this->content = $this->render('views/homes/index.php',[
             'categories'=>$categories,
             'products'=>$products

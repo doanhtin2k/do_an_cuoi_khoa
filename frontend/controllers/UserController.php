@@ -18,7 +18,7 @@ class UserController extends Controller
             $password = $_POST['password'];
             if(empty($username) || empty($password))
             {
-                $this->error = "Khong duoc de trong cac truong";
+                $this->error = "Khong duoc de trong Username hoac Password";
             }
 
             if(empty($this->error))
@@ -45,8 +45,10 @@ class UserController extends Controller
             }
 
         }
-        $this->page_title ="login";
-        $this->content = $this->render('views/users/login.php');
+        $this->page_title ="Đăng nhập";
+        $this->content = $this->render('views/users/login.php',[
+            "error"=>$this->error
+        ]);
         require_once "views/layouts/main.php";
     }
 
@@ -110,7 +112,7 @@ class UserController extends Controller
                 }
             }
         }
-        $this->page_title ="register";
+        $this->page_title ="Đăng ký";
         $this->content = $this->render('views/users/register.php',[
             'error_email'=>$error_email,
             'error_password'=>$error_password,
@@ -124,8 +126,72 @@ class UserController extends Controller
     public function logout()
     {
         unset($_SESSION['user']);
+        unset( $_SESSION['cart']);
+
         header('Location: index.php?controller=home&action=index');
         exit();
+    }
+    public function profile()
+    {
+
+        if (isset($_POST['submit'])) {
+            $first_name = $_POST['first_name'];
+            $last_name = $_POST['last_name'];
+            $phone = $_POST['phone'];
+            $address = $_POST['address'];
+            $email = $_POST['email'];
+            $facebook = $_POST['facebook'];
+            if ($_FILES['avatar']['error'] == 0) {
+                //validate khi có file upload lên thì bắt buộc phải là ảnh và dung lượng không quá 2 Mb
+                $extension = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
+                $extension = strtolower($extension);
+                $arr_extension = ['jpg', 'jpeg', 'png', 'gif'];
+
+                $file_size_mb = $_FILES['avatar']['size'] / 1024 / 1024;
+                //làm tròn theo đơn vị thập phân
+                $file_size_mb = round($file_size_mb, 2);
+
+                if (!in_array($extension, $arr_extension)) {
+                    $this->error = 'Cần upload file định dạng ảnh';
+                } else if ($file_size_mb > 2) {
+                    $this->error = 'File upload không được quá 2MB';
+                }
+            }
+
+            //nếu ko có lỗi thì tiến hành save dữ liệu
+            if (empty($this->error)) {
+                $filename = $_SESSION['user']['avatar'];
+                //xử lý upload file nếu có
+                if ($_FILES['avatar']['error'] == 0) {
+                    $dir_uploads = '../backend/assets/uploads';
+                    if (!file_exists($dir_uploads)) {
+                        mkdir($dir_uploads);
+                    }
+                    //tạo tên file theo 1 chuỗi ngẫu nhiên để tránh upload file trùng lặp
+                    $filename = time() . '-product-' . $_FILES['avatar']['name'];
+                    move_uploaded_file($_FILES['avatar']['tmp_name'], $dir_uploads . '/' . $filename);
+                }
+                $user = new User();
+                //var_dump($user);
+                $user->first_name = $first_name;
+                $user->last_name = $last_name;
+                $user->phone = $phone;
+                $user->email = $email;
+                $user->facebook = $facebook;
+                $user->address = $address;
+                $user->avatar = $filename;
+                $is_update = $user->updateUser($_SESSION['user']['id']);
+                if ($is_update) {
+                    $_SESSION['success'] = 'Update thông tin cá nhân thành công';
+                } else {
+                    $_SESSION['error'] = 'Update thông tin cá nhân thành công';
+                }
+            }
+            $user_new = new User();
+            $_SESSION['user'] = $user_new->byId($_SESSION['user']['id']);
+        }
+        $this->content = $this->render("views/users/profile.php");
+        require_once "views/layouts/main.php";
     }
 }
 

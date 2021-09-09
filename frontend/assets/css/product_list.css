@@ -47,6 +47,13 @@
     color: white;
     text-decoration: none;
 }
+.card-price,.card-title,.card-last-price{
+    margin: 0;
+}
+.card-last-price{
+    font-weight: bold;
+    color: red;
+}
 /*END CSS product card*/
 /*END CSS MAIN*/
 

@@ -188,13 +188,20 @@ fieldset{
     padding: 10px 0px;
     text-align: center;
     border: 0.125rem solid #552505;
-    font-weight: 800px;
+    font-weight: 800;
 
 }
-.more:hover{
+.buy:hover{
 	background: #552505;
 	border: none;
 	color: white;
+}
+.card-price,.card-title,.card-last-price{
+	margin: 0;
+}
+.card-last-price{
+	font-weight: bold;
+	color: red;
 }
 /*END CSS MAIN*/
 

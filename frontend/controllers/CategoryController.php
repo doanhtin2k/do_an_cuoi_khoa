@@ -15,7 +15,7 @@ class CategoryController extends Controller
         $model_category = new Category();
         $categories = $model_category->getAll();
 
-
+        $this->page_title = "Category";
         $this->content = $this->render("views/categories/index.php",[
             'categories'=>$categories
         ]);

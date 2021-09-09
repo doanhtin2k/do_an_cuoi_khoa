@@ -1,7 +1,6 @@
 <?php
 require_once 'helpers/Helper.php';
 ?>
-
 <h2>Danh sách sản phẩm</h2>
     <a href="index.php?controller=product&action=create" class="btn btn-success">
         <i class="fa fa-plus"></i> Thêm mới
@@ -16,7 +15,6 @@ require_once 'helpers/Helper.php';
         <th>Amount</th>
         <th>Status</th>
         <th>Created_at</th>
-        <th>Updated_at</th>
         <th></th>
     </tr>
     <?php if (!empty($products)): ?>
@@ -34,7 +32,7 @@ require_once 'helpers/Helper.php';
                 <td><?php echo $product['amount'] ?></td>
                 <td><?php echo Helper::getStatusText($product['status']) ?></td>
                 <td><?php echo date('d-m-Y H:i:s', strtotime($product['created_at'])) ?></td>
-                <td><?php echo !empty($product['updated_at']) ? date('d-m-Y H:i:s', strtotime($product['updated_at'])) : '--' ?></td>
+
                 <td>
                     <?php
                     $url_detail = "index.php?controller=product&action=detail&id=" . $product['id'];

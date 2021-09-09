@@ -168,4 +168,16 @@ class Product extends Model
             ->prepare("DELETE FROM products WHERE id = $id");
         return $obj_delete->execute();
     }
+    public function getByName($name)
+    {
+        $sql = "SELECT * FROM products WHERE title LIKE :name";
+        $obj_select = $this->connection->prepare($sql);
+        $arr_select = [
+            ':name'=>'%'.$name.'%'
+        ];
+        $obj_select->execute($arr_select);
+        $products = $obj_select->fetchAll(PDO::FETCH_ASSOC);
+
+        return $products;
+    }
 }

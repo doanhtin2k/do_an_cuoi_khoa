@@ -238,6 +238,21 @@ class ProductController extends Controller
         header('Location: index.php?controller=product');
         exit();
     }
+    public function search()
+    {
+        $products= [];
+        if(isset($_POST['submit']))
+        {
+            $name = $_POST['name'];
+            $product_model = new Product();
+            $products= $product_model->getByName($name);
+        }
+
+        $this->content = $this->render('views/products/search.php',[
+            "products"=>$products,
+        ]);
+        require_once 'views/layouts/main.php';
+    }
 }
 
 

@@ -9,6 +9,7 @@
 }
 body{
 	overflow-x: hidden;
+	/*background: #E7ECF2;*/
 }
 .nav-mobile{
 	display: none;
@@ -112,6 +113,28 @@ a#dropdownMenuLink:hover{
 	display: block;
 }
 /*END CSS MENU*/
+.alert-secondary{
+	padding: 40px 0px;
+	position: fixed;
+	top: calc(50% - 82.2px);
+	z-index: 200;
+	width: 400px;
+	left: calc(50% - 200px);
+	background: #4C4C4C;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	border: none;
+	display: none;
+}
+.alert-secondary-show{
+	display: block;
+}
+.fa-check-circle:before {
+	content: "\f058";
+	color: #00BFA5;
+}
+
 /*CSS main*/
 .main{
 	margin-top: 72px;
@@ -155,10 +178,10 @@ fieldset{
 .card-body {
 	padding: 20px 0px;
 }
-.card-price,.card-title{
+.card-price,.card-title,.card-last-price{
 	margin: 0;
 }
-.card-price{
+.card-last-price{
 	font-weight: bold;
 	color: red;
 }
@@ -167,21 +190,40 @@ fieldset{
 	padding: 0px;
 	border: none;
 }
-.buy{
+.detail-product{
 	background: transparent;
 	color: black;
 	display: block;
 	width: 100%;
-	padding: 12px 0px;
+	padding: 8px 0px;
 	text-align: center;
 	border: 0.125rem solid #552505;
 	font-weight: 800;
 }
-.buy:hover{
+.add-to-cart{
+	margin-top:10px;
+	background: transparent;
+	color: green;
+	display: block;
+	width: 100%;
+	padding: 8px 0px;
+	text-align: center;
+	border: 0.125rem solid #552505;
+	font-weight: 800;
+}
+.detail-product:hover{
 	background: #552505;
 	color: white;
 	text-decoration: none;
 }
+.add-to-cart:hover{
+	background: green;
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+	border: 0.125rem solid green;
+}
+
 
 /*CSS MEMBER*/
 .member{

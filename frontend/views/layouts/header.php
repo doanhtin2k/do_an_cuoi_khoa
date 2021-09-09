@@ -11,7 +11,7 @@
     <div class="container">
         <div class="menu-mb-wrap">
             <div class="row">
-                <a href="">
+                <a href="index.php">
                     <div class="logo">
                         odbo
                     </div>
@@ -23,35 +23,52 @@
             </div>
             <div class="menu-mb-content">
                 <div class="item-top">
-                    <a href="#" >
+                    <?php
+                    if(!isset($_SESSION['user'])):
+                    ?>
+                    <a href="index.php?controller=user&action=login" >
                         <div class="login">
                             <i class="fas fa-unlock"></i>
                             LOGIN
                         </div>
                     </a>
-                    <!-- <div style="margin-left: 15px;">
+                    <?php
+                    endif;
+                    ?>
+                    <?php
+                    if(isset($_SESSION['user'])):
+                        ?>
+                     <div style="margin-left: 15px;">
                         <div class="dropdown show">
                               <a class="btn btn-secondary dropdown-toggle"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Doanhad123
+                                  <?php
+                                  echo $_SESSION['user']['username'];
+                                  ?>
                               </a>
 
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Tai Khoan</a>
-                                <a class="dropdown-item" href="#">LOGOUT</a>
+                                <a class="dropdown-item" href="index.php?controller=user&action=profile">Tai Khoan</a>
+                                <a class="dropdown-item" href="index.php?controller=user&action=logout">LOGOUT</a>
                               </div>
                         </div>
-                    </div> -->
-                    <a href="#">
+                    </div>
+
+                    <?php
+                        endif;
+                    ?>
+                    <a href="index.php?controller=cart&action=index">
                         <div class="cart" >
                             <i class="fas fa-cart-plus"></i>
                             CART
                         </div>
                     </a>
                 </div>
-                <div class="menu-item">
+                <form action="" method="get" class="menu-item">
                     <input type="text" name="search" placeholder="search"/>
-                    <button class="btn" name="btn-search">Search</button>
-                </div>
+                    <input type="hidden" name="controller" value="product"/>
+                    <input type="hidden" name="action" value="search"/>
+                    <button type="submit" class="btn" name="btn-search">Search</button>
+                </form>
                 <a href="index.php">
                     <div class="menu-item">
                         HOME
@@ -62,7 +79,7 @@
                         PRODUCTS
                     </div>
                 </a>
-                <a href="products.html">
+                <a href="index.php?controller=product&action=promotions">
                     <div class="menu-item">
                         PROMOTIONS
                     </div>
@@ -88,28 +105,30 @@
                         PRODUCTS
                     </div>
                 </a>
-                <a href="promotions.html">
+                <a href="index.php?controller=product&action=promotions">
                     <div class="menu-item">
                         PROMOTIONS
                     </div>
                 </a>
-                <a href="#">
+                <a href="index.php?controller=cart&action=index">
                     <div class="menu-item cart" >
                         <i class="fas fa-cart-plus"></i>
                         CART
                     </div>
                 </a>
             </div>
-            <a href="#" >
+            <a href="index.php" >
                 <div class="logo" >
                     odbo
                 </div>
             </a>
             <div class="right-menu">
-                <div class="search">
+                <form action="" method="get" class="search">
                     <input type="text" name="search" placeholder="search"/>
                     <i class="fas fa-search"></i>
-                </div>
+                    <input type="hidden" name="controller" value="product"/>
+                    <input type="hidden" name="action" value="search"/>
+                </form>
                 <?php
                 if(!isset($_SESSION['user'])):
                 ?>
@@ -134,7 +153,7 @@
                               </a>
 
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Tai Khoan</a>
+                                <a class="dropdown-item" href="index.php?controller=user&action=profile">Tai Khoan</a>
                                 <a class="dropdown-item" href="index.php?controller=user&action=logout">LOGOUT</a>
                               </div>
                         </div>
@@ -147,3 +166,10 @@
     </div>
 </div>
 <!-- END TOP NAV -->
+<div class="alert alert-secondary" role="alert">
+    <i class="fas fa-check-circle"
+       style="display: block; font-size: 51px;margin-bottom: 10px;color: white "></i>
+    <div class="alert-secondary-content">
+
+    </div>
+</div>
